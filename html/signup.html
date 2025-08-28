@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>회원가입</title>
+  <link rel="stylesheet" href="../css/signup.css" />
+  <script src="../js/signup.js" defer></script>
+  <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+</head>
+<body>
+  <form id="signupForm">
+    <h2>회원가입</h2>
+
+    <label>이름</label>
+    <input type="text" id="name" placeholder="이름을 입력하세요" required />
+
+    <label>닉네임</label>
+    <div class="nickname-check">
+      <input type="text" id="nickname" placeholder="사용할 닉네임" required />
+      <button type="button" id="checkNickname">중복확인</button>
+    </div>
+
+    <label>핸드폰 번호</label>
+    <input type="tel" id="phone" maxlength="13" placeholder="010-1234-5678" required />
+
+    <label>비밀번호</label>
+    <div class="password-toggle">
+      <input type="password" id="password" placeholder="영문+숫자+특수문자 포함 8자 이상" required />
+      <span class="toggle-icon" onclick="togglePassword('password')">👁️</span>
+    </div>
+
+    <label>비밀번호 확인</label>
+    <div class="password-toggle">
+      <input type="password" id="confirmPassword" placeholder="비밀번호를 다시 입력하세요" required />
+      <span class="toggle-icon" onclick="togglePassword('confirmPassword')">👁️</span>
+    </div>
+
+    <label>주소</label>
+    <div class="address-section">
+      <input type="text" id="postcode" placeholder="우편번호" readonly />
+      <button type="button" onclick="searchPostcode()">주소 검색</button>
+      <input type="text" id="address" placeholder="기본 주소" readonly />
+      <input type="text" id="detailAddress" placeholder="상세 주소" />
+    </div>
+
+    <div class="terms-section">
+      <h3>약관 동의</h3>
+      <label><input type="checkbox" id="agreeAll" /> 전체 동의</label>
+      <label><input type="checkbox" class="term required" /> [필수] 개인정보 처리방침 동의</label>
+      <label><input type="checkbox" class="term required" /> [필수] 서비스 이용약관 동의</label>
+      <label><input type="checkbox" class="term optional" /> [선택] 마케팅 정보 수신 동의</label>
+    </div>
+
+    <button type="submit">가입하기</button>
+  </form>
+</body>
+</html>
